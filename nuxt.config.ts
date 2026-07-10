@@ -63,7 +63,7 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    preset: 'node-server',
+    preset: 'vercel',
     compatibilityDate: '2026-05-02',
   },
   app: {

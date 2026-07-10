@@ -69,7 +69,7 @@
                           </button>
                         </div>
                         <div class="text-right">
-                          <span class="text-lg font-semibold">${{ (product.price * product.quantity).toFixed(2) }}</span>
+                          <span class="text-lg font-semibold">KSh {{ (product.price * product.quantity).toFixed(0) }}</span>
                           <p v-if="product.stock <= 5" class="text-sm text-red-600">Only {{ product.stock }} left in stock</p>
                         </div>
                       </div>
@@ -177,20 +177,20 @@
               <div class="space-y-4">
                 <div v-for="product in selectedProducts" :key="product.id" class="flex justify-between text-sm">
                   <span>{{ product.name }} x {{ product.quantity }}</span>
-                  <span>${{ (product.price * product.quantity).toFixed(2) }}</span>
+                  <span>KSh {{ (product.price * product.quantity).toFixed(0) }}</span>
                 </div>
                 <div class="border-t pt-4 space-y-2">
                   <div class="flex justify-between">
                     <span>Subtotal</span>
-                    <span>${{ subtotal.toFixed(2) }}</span>
+                    <span>KSh {{ subtotal.toFixed(0) }}</span>
                   </div>
                   <div class="flex justify-between">
                     <span>Delivery Fee</span>
-                    <span>${{ deliveryFee.toFixed(2) }}</span>
+                    <span>KSh {{ deliveryFee.toFixed(0) }}</span>
                   </div>
                   <div class="flex justify-between font-semibold text-lg border-t pt-2">
                     <span>Total</span>
-                    <span>${{ total.toFixed(2) }}</span>
+                    <span>KSh {{ total.toFixed(0) }}</span>
                   </div>
                 </div>
                 <button 
@@ -285,7 +285,7 @@ const form = reactive<OrderForm>({
       id: 1,
       name: 'Whole Chicken',
       description: 'Free-range whole chicken, perfect for roasting',
-      price: 15.99,
+      price: 650,
       quantity: 0,
       image: 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=800&q=80',
       stock: 20
@@ -294,7 +294,7 @@ const form = reactive<OrderForm>({
       id: 2,
       name: 'Chicken Breasts',
       description: 'Boneless, skinless chicken breasts',
-      price: 12.99,
+      price: 850,
       quantity: 0,
       image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=800&q=80',
       stock: 15
@@ -303,7 +303,7 @@ const form = reactive<OrderForm>({
       id: 3,
       name: 'Chicken Wings',
       description: 'Fresh chicken wings, perfect for grilling',
-      price: 8.99,
+      price: 100,
       quantity: 0,
       image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&q=80',
       stock: 25
@@ -330,7 +330,7 @@ const { products, deliveryMethod, deliveryDate, deliveryAddress, contactInfo, sh
 // Computed properties
 const selectedProducts = computed(() => products.value.filter(p => p.quantity > 0))
 const subtotal = computed(() => selectedProducts.value.reduce((sum, product) => sum + (product.price * product.quantity), 0))
-const deliveryFee = computed(() => deliveryMethod.value === 'delivery' ? 5.99 : 0)
+const deliveryFee = computed(() => deliveryMethod.value === 'delivery' ? 100 : 0)
 const total = computed(() => subtotal.value + deliveryFee.value)
 
 const minDeliveryDate = computed(() => {
@@ -404,7 +404,7 @@ const handleImageError = (event: Event) => {
 
 const isFormValid = computed(() => {
   return selectedProducts.value.length > 0 &&
-    subtotal.value >= 10 && // Minimum order amount
+    subtotal.value >= 100 && // Minimum order amount
     !Object.values(errors.value).some(error => error) &&
     contactInfo.value.name &&
     contactInfo.value.email &&
