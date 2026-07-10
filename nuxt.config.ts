@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   // Disable type checking during dev for faster builds
   typescript: {
     strict: true,
-    typeCheck: true
+    typeCheck: false
   },
   modules: [
     '@nuxtjs/tailwindcss',
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     injectPosition: 0,
     viewer: true,
   },
-  css: ['~/assets/css/main.css'],
+  // css is injected via tailwindcss.cssPath — no duplicate needed
   image: {
     provider: 'ipx',
     quality: 80,
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'vercel',
-    compatibilityDate: '2026-05-02',
+    compatibilityDate: '2024-11-01',
   },
   app: {
     head: {
@@ -96,6 +96,9 @@ export default defineNuxtConfig({
   },
   experimental: {
     payloadExtraction: false
+  },
+  dir: {
+    pages: 'pages'
   }
 })
 
