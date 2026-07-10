@@ -1,0 +1,18 @@
+{
+  "welcome": "Welcome to Metz Chicken Butchery",
+  "menu": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "products": {
+    "title": "Our Products",
+    "description": "Premium Free-Range Chicken Products"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "checkout": "Proceed to Checkout"
+  }
+} 
