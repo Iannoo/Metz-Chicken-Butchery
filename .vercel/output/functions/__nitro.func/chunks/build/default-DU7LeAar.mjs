@@ -1,18 +1,22 @@
 import { W } from './nuxt-link-BezG51Fv.mjs';
 import { defineComponent, mergeProps, withCtx, createVNode, createTextVNode, createBlock, openBlock, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrRenderAttr, ssrRenderSlot } from 'vue/server-renderer';
-import { c as publicAssetsURL } from '../_/nitro.mjs';
-import './server.mjs';
-import 'vue-router';
+import { p as publicAssetsURL } from '../routes/renderer.mjs';
+import '../_/nitro.mjs';
 import 'node:http';
 import 'node:https';
 import 'node:events';
 import 'node:buffer';
-import 'node:url';
-import 'ipx';
 import 'node:fs';
 import 'node:path';
 import 'node:crypto';
+import './server.mjs';
+import 'vue-router';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'devalue';
+import 'unhead/utils';
+import 'unhead/plugins';
 
 const p = publicAssetsURL("/logo.png"), v = defineComponent({ __name: "default", __ssrInlineRender: true, setup(x) {
   return (d, t, s, u) => {

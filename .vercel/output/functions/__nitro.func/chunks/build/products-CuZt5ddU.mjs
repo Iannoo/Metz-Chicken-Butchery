@@ -7,19 +7,17 @@ import 'node:http';
 import 'node:https';
 import 'node:events';
 import 'node:buffer';
-import 'node:url';
-import 'ipx';
 import 'node:fs';
 import 'node:path';
 import 'node:crypto';
 import './server.mjs';
-import 'vue-router';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'devalue';
 import 'unhead/utils';
 import 'unhead/plugins';
+import 'vue-router';
 
 const w = defineComponent({ __name: "products", __ssrInlineRender: true, setup(d) {
   const i = ref("all"), r = [{ id: "all", name: "All Products", description: "Browse our complete selection of premium chicken products.", icon: "IconAll" }, { id: "whole", name: "Whole Chicken", description: "Perfect for roasting and family meals.", icon: "IconWhole" }, { id: "cuts", name: "Chicken Cuts", description: "Premium cuts for every recipe.", icon: "IconCuts" }], m$1 = [{ id: 1, name: "Whole Free-Range Chicken", description: "Premium whole chicken, perfect for roasting. Raised free-range for superior taste and quality.", price: 650, unit: "kg", category: "whole", image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=800&q=80", isNew: false }, { id: 2, name: "Chicken Breast Fillets", description: "Boneless, skinless chicken breast fillets. Lean, tender, and versatile.", price: 850, unit: "kg", category: "cuts", image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=800&q=80", isNew: false }, { id: 3, name: "Chicken Wings", description: "Premium chicken wings, perfect for grilling or frying.", price: 100, unit: "kg", category: "cuts", image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&q=80", isNew: false }, { id: 4, name: "Chicken Thighs", description: "Bone-in chicken thighs, juicy and flavorful.", price: 250, unit: "kg", category: "cuts", image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&q=80", isNew: true }, { id: 5, name: "Chicken Drumsticks", description: "Fresh chicken drumsticks, perfect for grilling or baking.", price: 450, unit: "kg", category: "cuts", image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&q=80", isNew: false }, { id: 6, name: "Chicken Mince", description: "Ground chicken, perfect for burgers, meatballs, and more.", price: 1250, unit: "kg", category: "cuts", image: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=800&q=80", isNew: true }], b = computed(() => i.value === "all" ? m$1 : m$1.filter((p) => p.category === i.value));

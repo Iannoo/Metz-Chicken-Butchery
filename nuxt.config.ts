@@ -20,7 +20,6 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxt/image',
   ],
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
@@ -30,19 +29,6 @@ export default defineNuxtConfig({
     viewer: true,
   },
   // css is injected via tailwindcss.cssPath — no duplicate needed
-  image: {
-    provider: 'ipx',
-    quality: 80,
-    format: ['webp'],
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-    }
-  },
   runtimeConfig: {
     // Private keys (only available on server-side)
     stripeSecretKey: process.env.STRIPE_SECRET_KEY || 'sk_test_dummy',

@@ -3,8 +3,6 @@ import 'node:http';
 import 'node:https';
 import 'node:events';
 import 'node:buffer';
-import 'node:url';
-import 'ipx';
 import 'node:fs';
 import 'node:path';
 import 'node:crypto';

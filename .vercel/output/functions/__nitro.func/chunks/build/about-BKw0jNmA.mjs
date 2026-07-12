@@ -7,18 +7,16 @@ import 'node:http';
 import 'node:https';
 import 'node:events';
 import 'node:buffer';
-import 'node:url';
-import 'ipx';
 import 'node:fs';
 import 'node:path';
 import 'node:crypto';
-import 'vue-router';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
 import 'unhead/server';
 import 'devalue';
 import 'unhead/utils';
 import 'unhead/plugins';
+import 'vue-router';
 
 const r = defineComponent({ __name: "about", __ssrInlineRender: true, setup(e) {
   return m({ title: "About Us - Metz Chicken Butchery", meta: [{ name: "description", content: "Learn about Metz Chicken Butchery's commitment to quality, animal welfare, and sustainable farming practices." }] }), (s, t, m, a) => {
