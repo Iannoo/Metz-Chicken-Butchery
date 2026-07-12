@@ -223,7 +223,10 @@ function withBase(input, base) {
   }
   const _base = withoutTrailingSlash(base);
   if (input.startsWith(_base)) {
-    return input;
+    const nextChar = input[_base.length];
+    if (!nextChar || nextChar === "/" || nextChar === "?") {
+      return input;
+    }
   }
   return joinURL(_base, input);
 }
@@ -235,8 +238,12 @@ function withoutBase(input, base) {
   if (!input.startsWith(_base)) {
     return input;
   }
-  const trimmed = input.slice(_base.length);
-  return trimmed[0] === "/" ? trimmed : "/" + trimmed;
+  const nextChar = input[_base.length];
+  if (nextChar && nextChar !== "/" && nextChar !== "?") {
+    return input;
+  }
+  const trimmed = input.slice(_base.length).replace(/^\/+/, "");
+  return "/" + trimmed;
 }
 function withQuery(input, query) {
   const parsed = parseURL(input);
@@ -614,8 +621,8 @@ function _defu(baseObject, defaults, namespace = ".", merger) {
   if (!isPlainObject(defaults)) {
     return _defu(baseObject, {}, namespace, merger);
   }
-  const object = Object.assign({}, defaults);
-  for (const key in baseObject) {
+  const object = { ...defaults };
+  for (const key of Object.keys(baseObject)) {
     if (key === "__proto__" || key === "constructor") {
       continue;
     }
@@ -3970,7 +3977,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "99dc9b13-7f3d-46f7-9fb1-b6741e842e19",
+    "buildId": "a93c0231-4b29-4f0e-9d90-494918e5c017",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },

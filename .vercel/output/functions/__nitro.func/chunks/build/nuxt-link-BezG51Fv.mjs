@@ -1,6 +1,6 @@
 import { defineComponent, shallowRef, h, resolveComponent, computed } from 'vue';
 import { p as parseQuery, h as hasProtocol, k as joinURL, v as withTrailingSlash, x as withoutTrailingSlash } from '../_/nitro.mjs';
-import { u as Q, b as h$1, c as X, r as vt, n as yt, d as io } from './server.mjs';
+import { u as Z, b as m, c as ee, r as Ct, n as xt, d as _o } from './server.mjs';
 
 const k = (...n) => n.find((g) => g !== void 0);
 function F(n) {
@@ -17,7 +17,7 @@ function F(n) {
   }
   function q(e) {
     var _a, _b, _c;
-    const r = Q(), d = X(), u = computed(() => !!e.target && e.target !== "_self"), f = computed(() => {
+    const r = Z(), d = ee(), u = computed(() => !!e.target && e.target !== "_self"), f = computed(() => {
       const a = e.to || e.href || "";
       return typeof a == "string" && hasProtocol(a, { acceptRelative: true });
     }), s = resolveComponent("RouterLink"), c = s && typeof s != "string" ? s.useLink : void 0, v = computed(() => {
@@ -33,21 +33,21 @@ function F(n) {
       const a = (_a2 = e.trailingSlash) != null ? _a2 : n.trailingSlash;
       if (!t.value || f.value || p(t.value)) return t.value;
       if (v.value) {
-        const h = typeof t.value == "object" && "path" in t.value ? vt(t.value) : t.value, i = typeof h == "object" ? r.resolve(h).href : h;
+        const h = typeof t.value == "object" && "path" in t.value ? Ct(t.value) : t.value, i = typeof h == "object" ? r.resolve(h).href : h;
         return x(i, a);
       }
       return typeof t.value == "object" ? (_b2 = (m = r.resolve(t.value)) == null ? void 0 : m.href) != null ? _b2 : null : x(joinURL(d.app.baseURL, t.value), a);
     });
     return { to: t, hasTarget: u, isAbsoluteUrl: f, isExternal: v, href: y, isActive: (_a = l == null ? void 0 : l.isActive) != null ? _a : computed(() => t.value === r.currentRoute.value.path), isExactActive: (_b = l == null ? void 0 : l.isExactActive) != null ? _b : computed(() => t.value === r.currentRoute.value.path), route: (_c = l == null ? void 0 : l.route) != null ? _c : computed(() => r.resolve(t.value)), async navigate(a) {
-      await yt(y.value, { replace: e.replace, external: v.value || u.value });
+      await xt(y.value, { replace: e.replace, external: v.value || u.value });
     } };
   }
   return defineComponent({ name: g, props: { to: { type: [String, Object], default: void 0, required: false }, href: { type: [String, Object], default: void 0, required: false }, target: { type: String, default: void 0, required: false }, rel: { type: String, default: void 0, required: false }, noRel: { type: Boolean, default: void 0, required: false }, prefetch: { type: Boolean, default: void 0, required: false }, prefetchOn: { type: [String, Object], default: void 0, required: false }, noPrefetch: { type: Boolean, default: void 0, required: false }, activeClass: { type: String, default: void 0, required: false }, exactActiveClass: { type: String, default: void 0, required: false }, prefetchedClass: { type: String, default: void 0, required: false }, replace: { type: Boolean, default: void 0, required: false }, ariaCurrentValue: { type: String, default: void 0, required: false }, external: { type: Boolean, default: void 0, required: false }, custom: { type: Boolean, default: void 0, required: false }, trailingSlash: { type: String, default: void 0, required: false } }, useLink: q, setup(e, { slots: r }) {
-    Q();
+    Z();
     const { to: d, href: u, navigate: f, isExternal: s, hasTarget: c, isAbsoluteUrl: v } = q(e);
     shallowRef(false);
     const t = void 0, l = void 0;
-    async function y(a = h$1()) {
+    async function y(a = m()) {
     }
     return () => {
       var h$1;
@@ -66,7 +66,7 @@ function F(n) {
     };
   } });
 }
-const W = F(io);
+const W = F(_o);
 function x(n, g) {
   const p = g === "append" ? withTrailingSlash : withoutTrailingSlash;
   return hasProtocol(n) && !n.startsWith("http") ? n : p(n, true);

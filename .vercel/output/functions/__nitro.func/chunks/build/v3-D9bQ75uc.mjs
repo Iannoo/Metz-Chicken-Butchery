@@ -1,10 +1,10 @@
 import { hasInjectionContext, inject } from 'vue';
-import { t as pt } from './server.mjs';
+import { t as Rt } from './server.mjs';
 import { u as useHead, h as headSymbol } from '../routes/renderer.mjs';
 
 function u(r) {
   var t;
-  const e = r || pt();
+  const e = r || Rt();
   return ((t = e == null ? void 0 : e.ssrContext) == null ? void 0 : t.head) || (e == null ? void 0 : e.runWithContext(() => {
     if (hasInjectionContext()) return inject(headSymbol);
   }));
