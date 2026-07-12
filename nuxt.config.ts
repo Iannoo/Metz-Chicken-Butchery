@@ -50,10 +50,7 @@ export default defineNuxtConfig({
       supabaseKey: process.env.SUPABASE_KEY || 'supabase_key_dummy',
     }
   },
-  nitro: {
-    preset: 'vercel',
-    compatibilityDate: '2024-11-01',
-  },
+  compatibilityDate: '2024-11-01',
   app: {
     head: {
       title: 'Metz Chicken Butchery',

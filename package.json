@@ -14,8 +14,7 @@
     "@vueuse/nuxt": "^10.9.0",
     "nuxt": "^3.10.3",
     "pinia": "^3.0.4",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@nuxt/types": "^2.18.1",
