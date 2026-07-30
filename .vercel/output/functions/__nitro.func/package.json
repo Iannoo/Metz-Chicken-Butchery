@@ -24,10 +24,8 @@
     "perfect-debounce": "1.0.0",
     "pinia": "3.0.4",
     "source-map-js": "1.2.1",
-    "ufo": "1.6.4",
     "unhead": "2.0.10",
     "vue": "3.5.16",
-    "vue-bundle-renderer": "2.1.1",
     "vue-router": "4.5.1"
   }
 }
