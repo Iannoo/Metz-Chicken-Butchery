@@ -25,10 +25,10 @@ export default defineNuxtConfig({
   ],
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
-    configPath: 'tailwind.config.js',
+    configPath: 'tailwind.config.cjs',
     exposeConfig: false,
     injectPosition: 0,
-    viewer: true,
+    viewer: false,
   },
   // css is injected via tailwindcss.cssPath — no duplicate needed
   runtimeConfig: {
@@ -84,6 +84,11 @@ export default defineNuxtConfig({
   },
   dir: {
     pages: 'pages'
+  },
+
+  nitro: {
+    preset: 'vercel',
+    compatibilityDate: '2024-11-01',
   }
 })
 

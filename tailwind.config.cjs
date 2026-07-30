@@ -37,6 +37,12 @@ module.exports = {
           900: '#0f172a',
           950: '#020617',
         },
+        cream: {
+          50: '#fefdf8',
+          100: '#fdf9ec',
+          200: '#f9f0cc',
+          300: '#f4e499',
+        },
       },
       fontFamily: {
         sans: ['Inter var', 'sans-serif'],
