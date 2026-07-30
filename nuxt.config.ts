@@ -95,5 +95,5 @@ export default defineNuxtConfig({
 // Print runtime config in dev mode for debugging
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line no-console
-  console.log('Loaded runtimeConfig:', JSON.stringify(import.meta.env, null, 2))
+  console.log('Loaded runtimeConfig:', JSON.stringify(process.env, null, 2))
 }

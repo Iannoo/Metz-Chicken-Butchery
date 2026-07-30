@@ -66,5 +66,5 @@
 </template>
 
 <script setup lang="ts">
-const logoUrl = process.client ? '/logo.png' : ''
+const logoUrl = import.meta.client ? '/logo.png' : ''
 </script> 
