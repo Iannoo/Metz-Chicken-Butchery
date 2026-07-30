@@ -89,6 +89,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel',
     compatibilityDate: '2024-11-01',
+    externals: {
+      inline: ['vue-bundle-renderer', '@vue/server-renderer', '@vue/shared']
+    }
   }
 })
 
