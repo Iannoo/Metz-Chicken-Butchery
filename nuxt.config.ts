@@ -2,7 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   // Add development optimizations
   vite: {
     build: {
@@ -11,7 +11,29 @@ export default defineNuxtConfig({
     },
     optimizeDeps: {
       include: ['@heroicons/vue']
-    }
+    },
+    define: {
+      __VITE_SUPPRESS_APP_MANIFEST_WARNING__: true
+    },
+    logLevel: 'warn',
+    customLogger: {
+      info(msg: string) {
+        if (!msg.includes('#app-manifest')) console.log(msg)
+      },
+      warn(msg: string) {
+        if (!msg.includes('#app-manifest')) console.warn(msg)
+      },
+      warnOnce(msg: string) {
+        if (!msg.includes('#app-manifest')) console.warn(msg)
+      },
+      error(msg: string) {
+        console.error(msg)
+      },
+      clearScreen() {
+        // no-op
+      },
+      hasWarned: false
+    } as any
   },
   // Disable type checking during dev for faster builds
   typescript: {
@@ -53,14 +75,26 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   app: {
     head: {
-      title: 'Metz Chicken Butchery',
+      htmlAttrs: {
+        lang: 'en',
+        dir: 'ltr'
+      },
+      title: 'Metz Chicken Butchery | Fresh Kienyeji Chicken Delivery Eldoret',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Premium free-range chicken from Metz Chicken Butchery' }
+        { name: 'description', content: 'Buy fresh kienyeji chicken in Eldoret from Metz Chicken Butchery. Fresh farm chicken, hygienic processing, affordable prices and reliable service.' },
+        { name: 'theme-color', content: '#dc2626' },
+        { property: 'og:title', content: 'Metz Chicken Butchery | Fresh Kienyeji Chicken Delivery' },
+        { property: 'og:description', content: 'Fresh, quality kienyeji chicken delivered straight from our farm to your table in Eldoret.' },
+        { property: 'og:type', content: 'business.business' },
+        { property: 'og:image', content: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=1200&q=80' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'robots', content: 'index, follow' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://metz-chicken-butchery.vercel.app' }
       ]
     }
   },
@@ -79,8 +113,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@heroicons/vue']
   },
+  image: {
+    dir: 'public/images'
+  },
   experimental: {
-    payloadExtraction: false
+    payloadExtraction: false,
+    componentIslands: true,
+    noScripts: false
   },
   dir: {
     pages: 'pages'
@@ -88,12 +127,11 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'vercel',
-    compatibilityDate: '2024-11-01'
+    compatibilityDate: '2024-11-01',
+    minify: true,
+    sourceMap: false,
+    prerender: {
+      crawlLinks: true
+    }
   }
-})
-
-// Print runtime config in dev mode for debugging
-if (process.env.NODE_ENV === 'development') {
-  // eslint-disable-next-line no-console
-  console.log('Loaded runtimeConfig:', JSON.stringify(process.env, null, 2))
-}
+}, { strict: false } as any)

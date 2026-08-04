@@ -1,0 +1,116 @@
+/* Performance Optimizations */
+
+/* 1. Font Loading Strategy */
+@font-face {
+  font-family: 'Inter var';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  font-display: swap;
+}
+
+/* 2. Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 3. Image Optimization */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent layout shift */
+img[width] {
+  width: auto;
+}
+
+/* 4. Prevent CLS (Cumulative Layout Shift) */
+button,
+a {
+  background-attachment: fixed;
+}
+
+/* 5. Improve Performance with GPU Acceleration */
+* {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 6. Touch Target Optimization */
+button,
+a,
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* 7. Focus Styles for Accessibility */
+:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline-offset: 2px;
+}
+
+/* 8. Color Contrast */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 9. Container Optimization */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* 10. Animation Performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 11. Dark Mode Support (Ready for future) */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}

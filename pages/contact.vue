@@ -2,11 +2,14 @@
   <div>
     <!-- Hero Section -->
     <section class="relative h-[40vh] min-h-[300px] bg-gray-900 overflow-hidden">
-      <div class="absolute inset-0">
+      <div class="absolute inset-0 opacity-40">
         <img
           src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1920&q=80"
-          alt="Contact Metz Chicken Butchery"
-          class="w-full h-full object-cover opacity-50"
+          alt=""
+          loading="eager"
+          width="1920"
+          height="600"
+          class="w-full h-full object-cover"
         />
       </div>
       <div class="relative container mx-auto px-4 h-full flex items-center">
@@ -23,7 +26,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <!-- Contact Form -->
           <div>
-            <h2 class="text-3xl font-display mb-8">Send Us a Message</h2>
+            <h2 class="text-3xl font-bold mb-8">Send Us a Message</h2>
             <form @submit.prevent="handleSubmit" class="space-y-6">
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -97,7 +100,7 @@
 
           <!-- Contact Information -->
           <div>
-            <h2 class="text-3xl font-display mb-8">Get in Touch</h2>
+            <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
             
             <div class="space-y-8">
               <div>
@@ -154,14 +157,15 @@
     <!-- Map Section -->
     <section class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-display text-center mb-12">Find Us</h2>
-        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-12">Find Us On Map</h2>
+        <div class="rounded-lg overflow-hidden shadow-lg" style="aspect-ratio: 16 / 9;">
           <!-- Replace with actual map embed -->
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.819565377546!2d36.82121431475391!3d-1.2829999999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d5a5f5f5f5%3A0x5f5f5f5f5f5f5f5f!2sMetz%20Chicken%20Butchery!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
             width="100%"
-            height="450"
+            height="100%"
             style="border:0;"
+            title="Metz Chicken Butchery location on Google Maps"
             allowfullscreen="true"
             loading="lazy"
           ></iframe>
@@ -172,6 +176,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  title: 'Contact Us - Metz Chicken Butchery | Eldoret'
+})
+
 const form = ref({
   name: '',
   email: '',
@@ -207,11 +215,10 @@ const handleSubmit = async () => {
 }
 
 useHead({
-  title: 'Contact Us - Metz Chicken Butchery',
   meta: [
     {
       name: 'description',
-      content: 'Get in touch with Metz Chicken Butchery. Visit our farm, place an order, or learn more about our products. We\'re here to help!'
+      content: 'Contact Metz Chicken Butchery in Eldoret. Call us at 0729 441 616 or WhatsApp 0734 448 745. Visit Rock Center for fresh kienyeji chicken.'
     }
   ]
 })

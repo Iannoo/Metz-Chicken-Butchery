@@ -20,10 +20,10 @@
     </div>
 
     <!-- Order Header -->
-    <section class="bg-primary-600 text-white py-12">
+    <section class="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-12 md:py-16">
       <div class="container mx-auto px-4">
-        <h1 class="text-3xl md:text-4xl font-display mb-4">Place Your Order</h1>
-        <p class="text-xl text-primary-100">Fresh, premium chicken delivered to your doorstep</p>
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Place Your Order</h1>
+        <p class="text-lg md:text-xl text-primary-100">Fresh, premium chicken delivered straight to your door</p>
       </div>
     </section>
 
@@ -36,7 +36,7 @@
             <form @submit.prevent="handleSubmit" class="space-y-8">
               <!-- Products Selection -->
               <div class="bg-white rounded-lg shadow-sm p-6">
-                <h2 class="text-2xl font-display mb-6">Select Products</h2>
+                <h2 class="text-2xl font-bold mb-6">Select Products</h2>
                 <div class="space-y-6">
                   <div v-for="product in products" :key="product.id" class="flex items-start space-x-4 p-4 border rounded-lg hover:border-primary-300 transition-colors">
                     <img 
@@ -80,7 +80,7 @@
 
               <!-- Delivery Information -->
               <div class="bg-white rounded-lg shadow-sm p-6">
-                <h2 class="text-2xl font-display mb-6">Delivery Information</h2>
+                <h2 class="text-2xl font-bold mb-6">Delivery Information</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Delivery Method</label>

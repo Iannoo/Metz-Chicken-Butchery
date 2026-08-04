@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.nuxt/
+Disallow: /dist/
+Disallow: /.vercel/
+
+Sitemap: https://metz-chicken-butchery.vercel.app/sitemap.xml
+
+# Specific rules for common bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

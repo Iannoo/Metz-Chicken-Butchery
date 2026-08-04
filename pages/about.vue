@@ -2,16 +2,19 @@
   <div>
     <!-- Hero Section -->
     <section class="relative h-[60vh] min-h-[400px] bg-gray-900 overflow-hidden">
-      <div class="absolute inset-0">
+      <div class="absolute inset-0 opacity-40">
         <img
           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"
-          alt="Our farm"
-          class="w-full h-full object-cover opacity-50"
+          alt=""
+          loading="eager"
+          width="1920"
+          height="800"
+          class="w-full h-full object-cover"
         />
       </div>
       <div class="relative container mx-auto px-4 h-full flex items-center">
         <div class="max-w-2xl text-white">
-          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">Our Story</h1>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
           <p class="text-xl text-gray-200">From farm to table, we're committed to raising the finest free-range chicken with care and respect.</p>
         </div>
       </div>
@@ -21,7 +24,7 @@
     <section class="py-20">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-display mb-6">Our Mission</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
           <p class="text-xl text-gray-600">
             At Metz Chicken Butchery, we believe in providing our customers with the highest quality chicken while maintaining the highest standards of animal welfare and environmental responsibility.
           </p>
@@ -64,12 +67,15 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  title: 'About Us - Metz Chicken Butchery | Our Story'
+})
+
 useHead({
-  title: 'About Us - Metz Chicken Butchery',
   meta: [
     {
       name: 'description',
-      content: 'Learn about Metz Chicken Butchery\'s commitment to quality, animal welfare, and sustainable farming practices.'
+      content: 'Learn about Metz Chicken Butchery in Eldoret. We are committed to providing fresh kienyeji chicken with superior quality, animal welfare, and sustainable farming practices.'
     }
   ]
 })

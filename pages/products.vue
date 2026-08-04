@@ -2,16 +2,19 @@
   <div>
     <!-- Hero Section -->
     <section class="relative h-[40vh] min-h-[300px] bg-gray-900 overflow-hidden">
-      <div class="absolute inset-0">
+      <div class="absolute inset-0 opacity-40">
         <img
           src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=1920&q=80"
-          alt="Our premium chicken products"
-          class="w-full h-full object-cover opacity-50"
+          alt=""
+          loading="eager"
+          width="1920"
+          height="600"
+          class="w-full h-full object-cover"
         />
       </div>
       <div class="relative container mx-auto px-4 h-full flex items-center">
         <div class="max-w-2xl text-white">
-          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">Our Products</h1>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Products</h1>
           <p class="text-xl text-gray-200">Premium quality chicken, raised with care and delivered fresh to your doorstep.</p>
         </div>
       </div>
@@ -40,17 +43,20 @@
         </div>
 
         <!-- Products Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <article
             v-for="product in filteredProducts"
             :key="product.id"
-            class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+            class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden border border-gray-100"
           >
-            <div class="relative">
+            <div class="relative bg-gray-200 overflow-hidden" style="aspect-ratio: 1;">
               <img
                 :src="product.image"
                 :alt="product.name"
-                class="w-full h-64 object-cover"
+                loading="lazy"
+                :width="400"
+                :height="400"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
               <div
                 v-if="product.isNew"
@@ -59,23 +65,26 @@
                 New
               </div>
             </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">{{ product.name }}</h3>
-              <p class="text-gray-600 mb-4">{{ product.description }}</p>
-              <div class="flex items-center justify-between">
+            <div class="p-5 md:p-6">
+              <h3 class="text-lg md:text-xl font-semibold mb-2 text-gray-800">{{ product.name }}</h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ product.description }}</p>
+              <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div>
-                  <span class="text-2xl font-bold text-primary-600">KSh {{ product.price }}</span>
-                  <span class="text-gray-500 text-sm">/{{ product.unit }}</span>
+                  <span class="block text-2xl font-bold text-primary-600">KSh {{ product.price }}</span>
+                  <span class="text-gray-500 text-xs">/{{ product.unit }}</span>
                 </div>
-                <button
-                  @click="addToCart(product)"
-                  class="bg-primary-600 text-white px-4 py-2 rounded-full hover:bg-primary-700 transition-colors"
+                <a
+                  :href="`https://wa.me/254734448745?text=Hi%20Metz%20Chicken%20Butchery%2C%20I%20am%20interested%20in%20ordering%20the%20${encodeURIComponent(product.name)}.`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 active:scale-95 transition-all font-medium text-sm"
+                  :aria-label="`Order ${product.name} via WhatsApp`"
                 >
-                  Add to Cart
-                </button>
+                  Order
+                </a>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -83,7 +92,7 @@
     <!-- Product Categories -->
     <section class="py-20 bg-cream-50">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-display text-center mb-12">Product Categories</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Product Categories</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
             v-for="category in categories"
@@ -110,7 +119,7 @@
     <section class="py-20">
       <div class="container mx-auto px-4">
         <div class="max-w-3xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-display mb-6">Our Quality Promise</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Quality Promise</h2>
           <p class="text-xl text-gray-600 mb-12">
             Every product we offer is raised with care, processed with precision, and delivered fresh to your doorstep. We stand behind the quality of our chicken with a 100% satisfaction guarantee.
           </p>
@@ -150,7 +159,7 @@
     <!-- CTA Section -->
     <section class="py-20 bg-primary-600 text-white">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-display mb-6">Ready to Order?</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Order?</h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto">Experience the difference that quality makes. Order now and get free delivery on your first purchase!</p>
         <NuxtLink
           to="/order"
@@ -164,6 +173,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  title: 'Products - Metz Chicken Butchery | Fresh Chicken Delivery'
+})
+
 const selectedCategory = ref('all')
 
 const categories = [
@@ -288,11 +301,10 @@ const IconCuts = defineComponent({
 })
 
 useHead({
-  title: 'Products - Metz Chicken Butchery',
   meta: [
     {
       name: 'description',
-      content: 'Browse our selection of premium free-range chicken products. From whole chickens to specialty cuts, we offer the finest quality chicken raised with care.'
+      content: 'Browse our selection of premium kienyeji chicken products in Eldoret. From whole chickens to specialty cuts, we offer the finest quality chicken at affordable prices.'
     }
   ]
 })
