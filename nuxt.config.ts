@@ -129,9 +129,6 @@ export default defineNuxtConfig({
     preset: 'vercel',
     compatibilityDate: '2024-11-01',
     minify: true,
-    sourceMap: false,
-    prerender: {
-      crawlLinks: true
-    }
+    sourceMap: false
   }
 }, { strict: false } as any)
