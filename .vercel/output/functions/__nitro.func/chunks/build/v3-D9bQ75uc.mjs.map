@@ -1,1 +1,0 @@
-{"version":3,"file":"v3-D9bQ75uc.mjs","sources":["../../../../../../node_modules/nuxt/dist/head/runtime/composables/v3.js"],"sourcesContent":null,"names":["injectHead","nuxtApp","nuxt","tryUseNuxtApp","_a","hasInjectionContext","inject","headSymbol","useHead","input","options","head","headCore"],"mappings":"","x_google_ignoreList":[0]}

@@ -45,12 +45,12 @@
       "handle": "filesystem"
     },
     {
-      "src": "/__nuxt_error",
-      "dest": "/__nitro"
+      "src": "(?<__isr_route>/__nuxt_error)",
+      "dest": "/__fallback"
     },
     {
       "src": "/(.*)",
-      "dest": "/__nitro"
+      "dest": "/__fallback"
     }
   ]
 }
